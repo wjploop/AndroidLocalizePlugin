@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>com.wjp.AndroidLocalizePlugin</id>
+    <name>AndroidLocalizeWithBaiduApi</name>
+    <vendor email="wjploop@163.com" url="wjploop.github.io">wjploop</vendor>
+
+    <description><![CDATA[
+    <p>This is helper for you to translate the strings.xml content to other languages. </p>
+    <p>Use Baidu Translate Service </p>
+    <p>Filter the srtring item that have been translated </p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <action class="com.wjp.actions.TranslateAction" id="TranslateAction">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>

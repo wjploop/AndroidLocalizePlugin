@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.11'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+}
+
+group 'com.wjp'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation("com.squareup.okhttp3:okhttp:4.2.1")
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'org.dom4j:dom4j:2.1.1'
+
+}
+
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+intellij {
+    version '2018.2.6'
+//    version '2019.2.3'
+//    version '14.1.5'
+    pluginName 'AndroidLocalization'
+    plugins 'android'
+    updateSinceUntilBuild false
+}
+
+publishPlugin {
+    token="perm:d2pwbG9vcA==.OTItMTQ3NA==.QieCEIHX80LOoWxiDhdLwfsH5E9XBB"
+    channels "wjploop"
+}
+
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
