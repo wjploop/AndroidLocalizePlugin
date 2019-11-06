@@ -39,8 +39,8 @@ class ConfigureDialog(val project: Project,val filePath:String) : DialogWrapper(
         properties = PropertiesComponent.getInstance(project)
         val toLangsString = properties.getValue("key_to_languages", "")
 
-        appId=properties.getValue("key_app_id","")
-        privateKey=properties.getValue("key_private_key","")
+        appId=properties.getValue("key_app_id", APPID)
+        privateKey=properties.getValue("key_private_key", PRIVATEKEY)
 
 
         val supportLangs = Language.values()
@@ -69,11 +69,17 @@ class ConfigureDialog(val project: Project,val filePath:String) : DialogWrapper(
         val tokenInput=Container().apply {
             layout=GridLayout(6,2)
             val baiduStr="http://api.fanyi.baidu.com/api/trans/product/index"
-            add(JLabel("<html>请进入<a href='$baiduStr'>百度翻译开放平台</a>，获取输入以下信息(默认是本人账号，次数可能有限)</html>").apply {
+            add(JLabel("<html>本插件使用百度翻译服务，默认key次数超出后会导致翻译失败。进入<a href='$baiduStr'>百度翻译开放平台</a>，注册获取自己的key</html>").apply {
                 addMouseListener(object:MouseAdapter(){
                     override fun mouseClicked(e: MouseEvent?) {
                         try{
-                            Runtime.getRuntime().exec("cmd.exe /c start $baiduStr")
+                            System.getProperty("os.name").toLowerCase().let{
+                                when{
+                                    it.contains("mac") ->Runtime.getRuntime().exec("open $baiduStr")
+                                    it.contains("win") ->   Runtime.getRuntime().exec("cmd.exe /c start $baiduStr")
+                                    else ->Runtime.getRuntime().exec("mozilla $baiduStr")
+                                }
+                            }
                         }catch (e:Exception){
                             e.printStackTrace()
                         }
@@ -109,7 +115,7 @@ class ConfigureDialog(val project: Project,val filePath:String) : DialogWrapper(
     override fun doOKAction() {
         super.doOKAction()
         if (selectedLang.isEmpty()) {
-            Messages.showErrorDialog("Please select the target languages you want to convert to ", "Error")
+            Messages.showErrorDialog("请先勾选要转换的目标语言 ", "Error")
         }
         val selectedLanguagesString = selectedLang.map { it.codeForApi }.joinToString()
         properties.setValue("key_to_languages", selectedLanguagesString)
@@ -120,8 +126,14 @@ class ConfigureDialog(val project: Project,val filePath:String) : DialogWrapper(
         properties.setValue("key_app_id",appId)
         properties.setValue("key_private_key",privateKey)
 
+
         TranslateService(filePath,selectedLang,appId,privateKey).traslate()
 
+    }
+
+    companion object{
+                const val APPID = "20191026000344502"
+        const val PRIVATEKEY = "uH5a9XtbyYCJ4BeKkZUF"
     }
 
 

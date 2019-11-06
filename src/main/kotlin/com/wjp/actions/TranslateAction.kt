@@ -4,11 +4,12 @@ import com.wjp.TranslateService
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
+import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.vfs.VirtualFile
 import com.wjp.ConfigureDialog
 import com.wjp.Language
 
-class TranslateAction:AnAction("Translate to you want") {
+class TranslateAction:AnAction("Translate to other languages","",IconLoader.getIcon("/img/logo.png")) {
     override fun actionPerformed(e: AnActionEvent) {
         val file=CommonDataKeys.VIRTUAL_FILE.getData(e.dataContext) as VirtualFile
 //        val service= TranslateService(

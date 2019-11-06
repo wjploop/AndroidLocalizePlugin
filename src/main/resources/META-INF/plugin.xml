@@ -4,10 +4,15 @@
     <vendor email="wjploop@163.com" url="wjploop.github.io">wjploop</vendor>
 
     <description><![CDATA[
-    <p>This is helper for you to translate the strings.xml content to other languages. </p>
+    <p>Android localize plugin, with this plugin you can translate the string.xml to other
+    languages</p>
+    <p>You can choose to use the API key you applied for to avoid the failure caused by the number of requests exceeding the number of times you share a key
+    </p>
     <p>Use Baidu Translate Service </p>
-    <p>Filter the srtring item that have been translated </p>
+
     ]]></description>
+
+
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -24,4 +29,11 @@
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
     </actions>
+
+    <change-notes>
+        <![CDATA[
+        <p></p>
+        ]]>
+    </change-notes>
+    <idea-version since-build="14.1.5"/>
 </idea-plugin>
