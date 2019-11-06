@@ -40,12 +40,6 @@ intellij {
 }
 
 publishPlugin {
-    token="perm:d2pwbG9vcA==.OTItMTQ3NA==.QieCEIHX80LOoWxiDhdLwfsH5E9XBB"
+    token "perm:d2pwbG9vcA==.OTItMTQ3NA==.QieCEIHX80LOoWxiDhdLwfsH5E9XBB"
     channels "wjploop"
-}
-
-patchPluginXml {
-    changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
 }

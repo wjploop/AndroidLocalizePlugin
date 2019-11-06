@@ -12,7 +12,10 @@
 
     ]]></description>
 
+    <change-notes><![CDATA[
+      <li>V1.0: welcome use.</li>
 
+    ]]></change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -30,10 +33,6 @@
         </action>
     </actions>
 
-    <change-notes>
-        <![CDATA[
-        <p></p>
-        ]]>
-    </change-notes>
+
     <idea-version since-build="14.1.5"/>
 </idea-plugin>
