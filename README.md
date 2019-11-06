@@ -18,5 +18,5 @@ Android Studio 本地化插件，翻译`string.xml`内容到其他国语言，�
 # 使用
 - 第一步：选择 values/strings.xml 文件。
 - 第二步：右键选择 Convert to other languages。
-- 第三步：勾选上需要翻译的语言。
+- 第三步：勾选上需要翻译的语言，可选输入自己的key
 - 第四步：点击 OK。
