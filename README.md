@@ -1,4 +1,4 @@
-# AndroidLocalizePluginWithBaiduApi
+# AndroidLocalizePlugin
 
 Android Studio 本地化插件，翻译`string.xml`内容到其他国语言，使用[百度翻译服务](http://api.fanyi.baidu.com/api/trans/product/index)
 
